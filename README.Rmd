@@ -1,0 +1,14 @@
+---
+title: "README"
+author: "Andrew Davis"
+date: "`r Sys.date`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# README
+
+This repository contains the notes for DataCamp's Introduction to Bioconductor course.

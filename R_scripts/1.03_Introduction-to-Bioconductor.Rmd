@@ -1,0 +1,82 @@
+---
+title: "1.03_Introduction-to-Bioconductor"
+author: "Andrew Davis"
+date: "`r Sys.date`"
+output: html_document
+---
+
+# Bioconductor
+
+Open source software for bioinformatics
+
+## The Role of S4 in Bioconductor:
+
+* S3:
+Positives:
+Most CRAN packages use S3. Flexible but powerful. Reacts differently depending on the input.
+example: plot() # there are many types of plots
+Bad at validating types and naming conventions
+Negatives:
+Bad at validating types and naming conventions
+
+* S4:
+Positive:
+Attempts to implement Object oriented programming
+Formal definition of classes
+Bioconductor reusability
+Has validation of types
+Naming conventions
+Negative:
+Complex structure compared to S3
+
+* Is it S4 or not?
+isS4(mydescriptor) 
+[1] TRUE
+
+str of S4 objects start with Formal class:
+str(mydescriptor)
+[1] Formal class 'GenomeDescription' [package "GenomeInfoDb"] with 7 slots
+...
+
+A class describes a representation:
+name
+slots
+contains (inheritance definition)
+
+* Example:
+MyEpicProject <- setClass(# Define class name with UpperCamelCase
+                          "MyEpicProject",
+                          # Define slots, helpful for validation
+                          slots = c(ini = "Date", 
+                                    end = "Date", 
+                                    milestone = "character"),
+                          # Define inheritance        
+                          contains = "MyProject")
+
+### S4 Accesors
+.S4methods(class = "GenomeDescription")
+ [1] commonName      organism        provider        providerVersion
+ [5] releaseDate     releaseName     seqinfo         seqnames       
+ [9] show            toString        bsgenomeName
+
+showMethods(classes = "GenomeDescription", where = search())
+
+### Object summary
+
+show(myDescriptor)
+| organism:  ()
+| provider: 
+| provider version: 
+| release date: 
+| release name: 
+| ---
+| seqlengths:
+
+
+
+
+
+```{r}
+
+
+```
