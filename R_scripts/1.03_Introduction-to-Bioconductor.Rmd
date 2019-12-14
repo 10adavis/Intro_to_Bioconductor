@@ -72,11 +72,28 @@ show(myDescriptor)
 | ---
 | seqlengths:
 
+# Introducing biology of genomic datasets:
 
+The BSgenome package allows us to access and analyze a large number of genomes:
+### load the package and store data into yeast
+library(BSgenome.Scerevisiae.UCSC.sacCer3)
+yeast <- BSgenome.Scerevisiae.UCSC.sacCer3
+###interested in other genomes?
+available.genomes()
+Using accessors
 
-
-
-```{r}
-
-
-```
+### Chromosome number 
+length(yeast)
+### Chromosome names
+names(yeast)
+### Sequence lengths 
+seqlengths(yeast)
+### S4 method getSeq() requires a BSgenome object
+getSeq(yeast) 
+### S4 method getSeq() requires a BSgenome object
+getSeq(yeast)
+### Select chromosome sequence by name, one or many 
+getSeq(yeast, "chrM")
+### Select start, end and or width 
+### end = 10, selects first 10 base pairs of each chromosome
+getSeq(yeast, end = 10)
