@@ -1,7 +1,7 @@
 ---
 title: "1.03_Introduction-to-Bioconductor"
 author: "Andrew Davis"
-date: "`r Sys.date`"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -76,12 +76,14 @@ show(myDescriptor)
 
 The BSgenome package allows us to access and analyze a large number of genomes:
 ### load the package and store data into yeast
+```{r}
+BiocManager::install("BSgenome.Scerevisiae.UCSC.sacCer3")
 library(BSgenome.Scerevisiae.UCSC.sacCer3)
 yeast <- BSgenome.Scerevisiae.UCSC.sacCer3
 ###interested in other genomes?
 available.genomes()
-Using accessors
 
+# Using accessors
 ### Chromosome number 
 length(yeast)
 ### Chromosome names
@@ -97,3 +99,4 @@ getSeq(yeast, "chrM")
 ### Select start, end and or width 
 ### end = 10, selects first 10 base pairs of each chromosome
 getSeq(yeast, end = 10)
+```
